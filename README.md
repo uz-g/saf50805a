@@ -15,14 +15,14 @@ this project implements a control system for a VEX V5 robot using pros and lemli
 
 ## hardware configuration
 
-- drivetrain: 8 motors per side
-- intake: 1 motor
+- drivetrain: 8 motors per side (77w)
+- intake: 1 motor (11w)
 - sensors:
   - imu
   - horizontal tracking wheel
 - pneumatics:
-  - mobile goal clamp
-  - intake piston
+  - mobile goal clamp (small)
+  - intake piston (large)
 
 ## dependencies
 
