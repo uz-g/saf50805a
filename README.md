@@ -1,11 +1,4 @@
-# VEX V5 robot control system
-<h1 align="center">AstroNvim</h1>
-
-<p align="center">
-    <a href="https://github.com/uz-g/saf508085a/pulse"><img src="https://img.shields.io/github/last-commit/uz-g/saf508085a?style=for-the-badge&logo=github&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"></a>
-    <a href="https://github.com/uz-g/saf508085a/releases/latest"><img src="https://img.shields.io/github/v/release/uz-g/saf508085a?style=for-the-badge&logo=gitbook&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"></a>
-    <a href="https://github.com/uz-g/saf508085a/stargazers"><img src="https://img.shields.io/github/stars/uz-g/saf508085a?style=for-the-badge&logo=apachespark&color=eed49f&logoColor=D9E0EE&labelColor=302D41"></a>
-</p>
+# 50805a.
 
 this project implements a control system for a VEX V5 robot using pros and lemlib.
 
@@ -22,14 +15,14 @@ this project implements a control system for a VEX V5 robot using pros and lemli
 
 ## hardware configuration
 
-- drivetrain: 8 motors per side
-- intake: 1 motor
+- drivetrain: 8 motors per side (77w)
+- intake: 1 motor (11w)
 - sensors:
   - imu
   - horizontal tracking wheel
 - pneumatics:
-  - mobile goal clamp
-  - intake piston
+  - mobile goal clamp (small)
+  - intake piston (large)
 
 ## dependencies
 
