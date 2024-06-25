@@ -140,14 +140,20 @@ void opcontrol() {
                             LV_PART_MAIN); // Set screen to purple
   controller.rumble(".");
   // Initialize a timer variable
-  std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();
+  std::chrono::steady_clock::time_point start_time =
+      std::chrono::steady_clock::now();
   bool timer_marked = false;
+  bool reverse_drive = false;
+  bool ip_extended = true; // intake piston extended = down state
+  bool mogo_clamped = false;
 
   while (true) {
     // Check if 1 minute 30 seconds have passed
     if (!timer_marked) {
       auto current_time = std::chrono::steady_clock::now();
-      auto elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
+      auto elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(
+                              current_time - start_time)
+                              .count();
       if (elapsed_time >= 90) { //  1 minute 30 seconds of 1m 45s match
         timer_marked = true;
         controller.rumble(".."); // Vibrate controller when 15 seconds left
@@ -184,7 +190,6 @@ void opcontrol() {
     }
 
     // Toggle reverse drive
-    static bool reverse_drive = false;
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
       reverse_drive = !reverse_drive;
       if (reverse_drive) {
@@ -206,14 +211,12 @@ void opcontrol() {
     }
 
     // Mogo clamp control
-    static bool mogo_clamped = false;
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
       mogo_clamped = !mogo_clamped;
       mogoClamp.set_value(mogo_clamped); // Toggle mogo clamp
     }
 
     // Intake up/down control
-    static bool ip_extended = true; // intake piston extended = down state
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
       ip_extended = !ip_extended;
       intakePiston.set_value(ip_extended); // Toggle intake position
