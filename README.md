@@ -1,5 +1,10 @@
-# 50805a.
+<h1 align="center">50805a.</h1>
 
+<p align="center">
+    <a href="https://github.com/uz-g/saf508085a/pulse"><img src="https://img.shields.io/github/last-commit/uz-g/saf508085a?style=for-the-badge&logo=github&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"></a>
+    <a href="https://github.com/uz-g/saf508085a/releases/latest"><img src="https://img.shields.io/github/v/release/uz-g/saf508085a?style=for-the-badge&logo=gitbook&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"></a>
+    <a href="https://github.com/uz-g/saf508085a/stargazers"><img src="https://img.shields.io/github/stars/uz-g/saf508085a?style=for-the-badge&logo=apachespark&color=eed49f&logoColor=D9E0EE&labelColor=302D41"></a>
+</p>
 this project implements a control system for a VEX V5 robot using pros and lemlib.
 
 ## features
