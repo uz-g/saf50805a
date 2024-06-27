@@ -54,7 +54,8 @@ this project implements a control system for a VEX V5 robot using pros and lemli
 - off (default)
 
 ## main.cpp code snippet
-![Code snippet main cpp](https://github.com/uz-g/saf50805a/assets/83078325/2fe7f481-29a7-493e-839a-589c524d31b2)
+![Loupe (1)](https://github.com/uz-g/saf50805a/assets/83078325/d944ef83-5140-48bf-b2fc-da380c786790)
+
 This snippet showcases:
 1. Real-time match timer with controller feedback
 2. Advanced use of C++ chrono library for precise timing
