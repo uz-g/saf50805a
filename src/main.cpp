@@ -118,6 +118,8 @@ void competition_initialize() {}
 
 // Autonomous function
 void autonomous() {
+  auto start_time = std::chrono::high_resolution_clock::now();
+
   switch (selected_auto) {
   case AutoMode::CLOSE_SIDE:
     close_side_auto();
@@ -132,6 +134,24 @@ void autonomous() {
     // Do nothing or run a default routine
     break;
   }
+
+  // Stop the timer
+  auto end_time = std::chrono::high_resolution_clock::now();
+
+  // Calculate the duration in seconds
+  auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(
+      end_time - start_time);
+
+  // Log the duration
+  std::string message =
+      "Autonomous completed in " + std::to_string(duration.count()) + " s";
+
+  // Display the duration on the LCD
+  pros::lcd::clear_line(0);
+  pros::lcd::print(0, "Auto time: %.2f s", duration.count());
+
+  // Optionally, display on controller
+  controller.print(0, 0, "Auto: %.2f s", duration.count());
 }
 
 // Operator control function
