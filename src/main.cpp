@@ -40,8 +40,8 @@ lemlib::ControllerSettings lateral_controller(10, 0, 3, 3, 1, 100, 3, 500, 20);
 lemlib::ControllerSettings angular_controller(2, 0, 10, 3, 1, 100, 3, 500, 0);
 
 // Configure input curves for driver control
-lemlib::ExpoDriveCurve throttle_curve(3, 10, 1.019);
-lemlib::ExpoDriveCurve steer_curve(3, 10, 1.019);
+lemlib::ExpoDriveCurve throttle_curve(3, 10, 1.038); //normal curve of 1.019 for both
+lemlib::ExpoDriveCurve steer_curve(3, 10, 1.038);
 
 // Create the chassis
 lemlib::Chassis chassis(drivetrain, lateral_controller, angular_controller,
