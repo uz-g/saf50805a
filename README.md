@@ -4,11 +4,11 @@
     <a href="https://github.com/uz-g/saf50805a/pulse"><img src="https://img.shields.io/github/last-commit/uz-g/saf50805a?style=for-the-badge&logo=github&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"></a>
     <a href="https://github.com/uz-g/saf50805a/stargazers"><img src="https://img.shields.io/github/stars/uz-g/saf50805a?style=for-the-badge&logo=apachespark&color=eed49f&logoColor=D9E0EE&labelColor=302D41"></a>
 </p>
-this project implements a control system for a VEX V5 robot using pros and lemlib.
+this project implements a control system for 50805A VEX V5 team using pros and lemlib.
 
 ## features
 
-- dual joystick tank drive
+- dual joystick tank drive with a exponential drive curve
 - autonomous mode selection via lvgl gui
 - intake control system
 - pneumatic systems for mobile goal clamp and intake positioning
@@ -19,13 +19,13 @@ this project implements a control system for a VEX V5 robot using pros and lemli
 
 ## hardware configuration
 
-- drivetrain: 8 motors per side (77w)
+- drivetrain: 6 motors per side (66w)
 - intake: 1 motor (11w)
 - sensors:
   - imu
   - horizontal tracking wheel
 - pneumatics:
-  - mobile goal clamp (small)
+  - mobile goal clamp (large)
   - intake piston (large)
 
 ## dependencies
@@ -48,10 +48,10 @@ this project implements a control system for a VEX V5 robot using pros and lemli
 
 ## autonomous modes
 
-- close side
+- close side (default)
 - far side
 - skills
-- off (default)
+- off 
 
 ## main.cpp code snippet
 ![Loupe (1)](https://github.com/uz-g/saf50805a/assets/83078325/d944ef83-5140-48bf-b2fc-da380c786790)
