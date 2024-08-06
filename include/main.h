@@ -91,9 +91,11 @@ void opcontrol(void);
 
 #pragma
 
-const int LEFT_MTR_B = 2;
-const int LEFT_MTR_M = 10;
-const int LEFT_MTR_F = 3;
-const int RIGHT_MTR_B = 9;
-const int RIGHT_MTR_M = 5;
-const int RIGHT_MTR_F = 6;
+#include "robot/robot.hpp"
+#include "globals.h"
+#include "robot/chassis.hpp"
+#include "robot/intake.hpp"
+#include "robot/pneumatics.hpp"
+#include "pros/apix.h"
+#include "screen/gui.hpp"
+#include "autonomous/routines.hpp"
