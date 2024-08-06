@@ -7,31 +7,32 @@ using namespace pros;
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Define motor groups for left and right sides of the drivetrain
-pros::MotorGroup left_mg({1, -2, 3, 4});
-pros::MotorGroup right_mg({-5, 6, 7, 8});
+pros::MotorGroup left_mg({-1, 2, -3});
+pros::MotorGroup right_mg({8, -6, 7});
 
 // Define intake motor
 pros::Motor intake_mtr(9);
 
 // Initialize sensors
-pros::Imu inertial(10);
-pros::Rotation horizontal_rotation(11); // horizontal tracking wheel
+pros::Imu inertial(19);
 
 // Initialize pneumatic components
-pros::adi::DigitalOut mogoClamp('A', false);
-pros::adi::DigitalOut intakePiston('B', true);
+pros::adi::DigitalOut mogo1('A', false);
+pros::adi::DigitalOut mogo2('B', false);
+
 // Configure drivetrain
 lemlib::Drivetrain drivetrain(&left_mg, &right_mg, 10,
                               lemlib::Omniwheel::OLD_325, 480, 5);
 
 // Configure tracking wheels
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation,
-                                                lemlib::Omniwheel::OLD_275_HALF,
-                                                -5.75);
+// pros::Rotation horizontal_rotation(11); // horizontal tracking wheel
+
+// lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation,
+//                                                 lemlib::Omniwheel::OLD_275_HALF,
+//                                                 -5.75);
 
 // Configure odometry sensors
-lemlib::OdomSensors sensors(nullptr, nullptr, &horizontal_tracking_wheel,
-                            nullptr, &inertial);
+lemlib::OdomSensors sensors(nullptr, nullptr, nullptr, nullptr, &inertial);
 
 // Configure lateral PID controller
 lemlib::ControllerSettings lateral_controller(10, 0, 3, 3, 1, 100, 3, 500, 20);
@@ -40,7 +41,8 @@ lemlib::ControllerSettings lateral_controller(10, 0, 3, 3, 1, 100, 3, 500, 20);
 lemlib::ControllerSettings angular_controller(2, 0, 10, 3, 1, 100, 3, 500, 0);
 
 // Configure input curves for driver control
-lemlib::ExpoDriveCurve throttle_curve(3, 10, 1.038); //normal curve of 1.019 for both
+lemlib::ExpoDriveCurve throttle_curve(3, 10,
+                                      1.038); // normal curve of 1.019 for both
 lemlib::ExpoDriveCurve steer_curve(3, 10, 1.038);
 
 // Create the chassis
@@ -233,15 +235,10 @@ void opcontrol() {
     // Mogo clamp control
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
       mogo_clamped = !mogo_clamped;
-      mogoClamp.set_value(mogo_clamped); // Toggle mogo clamp
+      mogo1.set_value(mogo_clamped); // Toggle mogo clamp
+      mogo2.set_value(mogo_clamped);
     }
 
-    // Intake up/down control
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
-      ip_extended = !ip_extended;
-      intakePiston.set_value(ip_extended); // Toggle intake position
-    }
-
-    pros::delay(30); // Run for 30 ms then update
+    pros::delay(35); // Run for 20 ms then update
   }
 }
